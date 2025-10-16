@@ -1,41 +1,54 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
+import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
+import { PanelBody, TextControl, ColorPicker } from '@wordpress/components';
 import './editor.scss';
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {Element} Element to render.
- */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+	const { heading, description, buttonText, buttonUrl, backgroundColor, textColor } = attributes;
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Zacks React Suite – hello from the editor!',
-				'zacks-react-suite'
-			) }
-		</p>
+		<>
+			<InspectorControls>
+				<PanelBody title="CTA Settings">
+					<TextControl
+						label="Button URL"
+						value={buttonUrl}
+						onChange={(value) => setAttributes({ buttonUrl: value })}
+					/>
+					<p>Background Color</p>
+					<ColorPicker
+						color={backgroundColor}
+						onChangeComplete={(value) => setAttributes({ backgroundColor: value.hex })}
+					/>
+					<p>Text Color</p>
+					<ColorPicker
+						color={textColor}
+						onChangeComplete={(value) => setAttributes({ textColor: value.hex })}
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div {...useBlockProps()} style={{ backgroundColor, color: textColor, padding: '40px', textAlign: 'center', borderRadius: '8px' }}>
+				<RichText
+					tagName="h2"
+					value={heading}
+					onChange={(value) => setAttributes({ heading: value })}
+					placeholder="Enter heading..."
+					style={{ color: textColor, marginBottom: '10px' }}
+				/>
+				<RichText
+					tagName="p"
+					value={description}
+					onChange={(value) => setAttributes({ description: value })}
+					placeholder="Enter description..."
+					style={{ color: textColor, marginBottom: '20px' }}
+				/>
+				<RichText
+					tagName="span"
+					value={buttonText}
+					onChange={(value) => setAttributes({ buttonText: value })}
+					placeholder="Button text..."
+					style={{ backgroundColor: '#fff', color: backgroundColor, padding: '12px 30px', borderRadius: '4px', display: 'inline-block', fontWeight: 'bold' }}
+				/>
+			</div>
+		</>
 	);
 }

@@ -3,10 +3,36 @@
 	"apiVersion": 3,
 	"name": "create-block/zacks-react-suite",
 	"version": "0.1.0",
-	"title": "Zacks React Suite",
+	"title": "Marketing CTA Block",
 	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"icon": "megaphone",
+	"description": "Professional call-to-action block for marketing campaigns",
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Ready to Get Started?"
+		},
+		"description": {
+			"type": "string",
+			"default": "Join thousands of satisfied customers today."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Get Started"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#0073aa"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#ffffff"
+		}
+	},
 	"example": {},
 	"supports": {
 		"html": false
@@ -14,6 +40,5 @@
 	"textdomain": "zacks-react-suite",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"style": "file:./style-index.css"
 }

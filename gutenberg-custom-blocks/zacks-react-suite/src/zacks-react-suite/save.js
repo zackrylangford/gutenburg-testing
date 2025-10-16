@@ -1,24 +1,15 @@
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
- *
- * @return {Element} Element to render.
- */
-export default function save() {
+export default function save({ attributes }) {
+	const { heading, description, buttonText, buttonUrl, backgroundColor, textColor } = attributes;
+
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Zacks React Suite – hello from the saved content!' }
-		</p>
+		<div {...useBlockProps.save()} style={{ backgroundColor, color: textColor, padding: '40px', textAlign: 'center', borderRadius: '8px' }}>
+			<RichText.Content tagName="h2" value={heading} style={{ color: textColor, marginBottom: '10px' }} />
+			<RichText.Content tagName="p" value={description} style={{ color: textColor, marginBottom: '20px' }} />
+			<a href={buttonUrl} style={{ backgroundColor: '#fff', color: backgroundColor, padding: '12px 30px', borderRadius: '4px', display: 'inline-block', fontWeight: 'bold', textDecoration: 'none' }}>
+				<RichText.Content tagName="span" value={buttonText} />
+			</a>
+		</div>
 	);
 }
