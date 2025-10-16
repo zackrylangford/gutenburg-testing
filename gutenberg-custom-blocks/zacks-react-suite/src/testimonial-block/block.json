@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/testimonial",
+	"version": "0.1.0",
+	"title": "Testimonial",
+	"category": "widgets",
+	"icon": "format-quote",
+	"description": "Display customer testimonials with image and quote",
+	"attributes": {
+		"quote": {
+			"type": "string",
+			"default": "This product changed my business!"
+		},
+		"authorName": {
+			"type": "string",
+			"default": "John Doe"
+		},
+		"authorTitle": {
+			"type": "string",
+			"default": "CEO, Company"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "zacks-react-suite",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

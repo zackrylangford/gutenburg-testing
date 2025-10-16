@@ -11,6 +11,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
       - ./gutenberg-custom-blocks:/var/www/html/wp-content/plugins
+      - ./zacks-test-child-theme:/var/www/html/wp-content/themes/zacks-test-child-theme
 
   db:
     image: mysql:8.0

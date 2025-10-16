@@ -1,0 +1,14 @@
+.wp-block-create-block-testimonial {
+	background: #f9f9f9;
+
+	img {
+		object-fit: cover;
+		display: block;
+	}
+
+	blockquote {
+		margin: 0;
+		border-left: 4px solid #0073aa;
+		padding-left: 15px;
+	}
+}
