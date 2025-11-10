@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/testimonial-carousel",
+	"version": "0.1.0",
+	"title": "Testimonial Carousel",
+	"category": "widgets",
+	"icon": "format-quote",
+	"description": "Display customer testimonials in a carousel format.",
+	"attributes": {
+		"testimonials": {
+			"type": "array",
+			"default": [
+				{
+					"quote": "This product changed my business!",
+					"author": "John Doe",
+					"title": "CEO, Company Inc",
+					"imageUrl": "",
+					"imageId": null
+				}
+			]
+		},
+		"currentSlide": {
+			"type": "number",
+			"default": 0
+		},
+		"imageSize": {
+			"type": "number",
+			"default": 80
+		},
+		"quoteSize": {
+			"type": "number",
+			"default": 20
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"showImage": {
+			"type": "boolean",
+			"default": true
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": "#0073aa"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		}
+	},
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "testimonial-carousel",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

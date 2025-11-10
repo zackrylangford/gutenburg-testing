@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Cta Block
+ * Plugin Name:       Testimonial Carousel
  * Description:       Example block scaffolded with Create Block tool.
  * Version:           0.1.0
  * Requires at least: 6.7
@@ -8,7 +8,7 @@
  * Author:            Zack Langford
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       cta-block
+ * Text Domain:       testimonial-carousel
  *
  * @package CreateBlock
  */
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_cta_block_block_init() {
-	register_block_type( __DIR__ . '/build/cta-block' );
+function create_block_testimonial_carousel_block_init() {
+	register_block_type( __DIR__ . '/build/testimonial-carousel' );
 }
-add_action( 'init', 'create_block_cta_block_block_init' );
+add_action( 'init', 'create_block_testimonial_carousel_block_init' );
