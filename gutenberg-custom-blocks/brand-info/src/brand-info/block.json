@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/brand-info",
+	"version": "0.1.0",
+	"title": "Brand Info",
+	"category": "widgets",
+	"icon": "admin-appearance",
+	"description": "Display company brand information from Brand Settings.",
+	"attributes": {
+		"showLogo": {
+			"type": "boolean",
+			"default": true
+		},
+		"showContact": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSocial": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "brand-info",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
